@@ -1,1 +1,1 @@
-var myVar = 10;
+console.log ("Hello World!")
