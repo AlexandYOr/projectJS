@@ -1,8 +1,12 @@
 const title = "JS";
 const screenPrice = 100;
-const rollback = "Exit";
+const rollback = 50;
 const fullPrice = 1000;
 const adaptive = true;
-const screens = 2;
-console.log("Good day to die");
-alert("Hello World!");
+const screens = "Простые, Сложные, Интерактивные";
+console.log(typeof title, typeof fullPrice, typeof adaptive);
+console.log(screens.length);
+console.log("Стоимость верстки " + screenPrice + " рублей");
+console.log("Стоимость разработки " + fullPrice + " рублей");
+console.log(screens.toLowerCase().split(", "));
+console.log(fullPrice * (rollback/100) + " %");
