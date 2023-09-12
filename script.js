@@ -1,19 +1,17 @@
-const title = prompt("Как называется ваш проект?");
-const screenPrice = prompt("Сколько будет стоить данная работа?");
+let title = prompt("Как называется ваш проект?");
+const screenPrice = Number(prompt("Сколько будет стоить данная работа?"));
 const rollback = 50;
 const adaptive = confirm("Нужен ли адаптив на сайте?");
 const screens = prompt("Какие типы экранов нужно разработать?");
 const service2 = prompt("Какой дополнительный тип услуг нужен?");
 const service1 = prompt("Какой дополнительный тип услуг нужен?");
-const servicePrice1 = prompt("Сколько это будет стоить?");
-const servicePrice2 = prompt("Сколько это будет стоить?");
-const fullPrice = Number(screenPrice) + Number(servicePrice1) + Number(servicePrice2);
-const servicePercentPrice = fullPrice - rollback;
+const servicePrice1 = Number(prompt("Сколько это будет стоить?"));
+const servicePrice2 = Number(prompt("Сколько это будет стоить?"));
+
 
 const showTypeOf = function (variable) {
-    console.log(variable, typeof variable)
-
-}
+    console.log(variable, typeof variable);
+};
 
 const getRollbackMessage = function (price) {
     if (price >= 30000) {
@@ -25,12 +23,37 @@ const getRollbackMessage = function (price) {
     } else {
         return "Что то пошло не так"
     };
+};
+
+const getAllServicePrices = function (firstPrice, secondPrice) {
+    return firstPrice + secondPrice
+}; // Function Expression
+const allServicePrices = getAllServicePrices(servicePrice1, servicePrice2);
+
+function getFullPrice(firstPrice, secondPrice) {
+    return firstPrice + secondPrice;
+}; //Function Declaration
+const fullPrice = getFullPrice(screenPrice, allServicePrices);
+
+const getCorrectName = function (name) {
+    const splittedName = name.trim().split("");
+    splittedName[0] = splittedName[0].toUpperCase();
+    return splittedName.join("");
 }
+title = getCorrectName(title)
+
+
+
+const getServicePercentPrices = (price, rollback) => price - rollback;
+const servicePercentPrices = getServicePercentPrices(fullPrice, rollback);
+
 showTypeOf(title);
 showTypeOf(screenPrice);
 showTypeOf(adaptive);
-
-console.log("полная стоимость - " + fullPrice, "откат посреднику - " + rollback);
+// console.log("полная стоимость - " + fullPrice, "откат посреднику - " + rollback);
+console.log(getRollbackMessage(fullPrice));
+console.log(screens);
+console.log(servicePercentPrices);
 // console.log(typeof title, typeof fullPrice, typeof adaptive);
 // console.log(screens.length);
 // console.log("Стоимость верстки " + screenPrice + " рублей");
