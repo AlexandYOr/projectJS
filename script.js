@@ -10,18 +10,27 @@ const servicePrice2 = prompt("Сколько это будет стоить?");
 const fullPrice = Number(screenPrice) + Number(servicePrice1) + Number(servicePrice2);
 const servicePercentPrice = fullPrice - rollback;
 
+const showTypeOf = function (variable) {
+    console.log(variable, typeof variable)
+
+}
+
+const getRollbackMessage = function (price) {
+    if (price >= 30000) {
+        return "Даем скидку 10%";
+    } else if (price >= 15000 && fullPrice < 30000) {
+        return "Даем скидку 5%";
+    } else if (price >= 0 && fullPrice < 15000) {
+        return "Скидка не предусмотрена";
+    } else {
+        return "Что то пошло не так"
+    };
+}
+showTypeOf(title);
+showTypeOf(screenPrice);
+showTypeOf(adaptive);
+
 console.log("полная стоимость - " + fullPrice, "откат посреднику - " + rollback);
-
-if (fullPrice >= 30000) {
-    console.log("Даем скидку 10%");
-} else if (fullPrice >= 15000 && fullPrice < 30000) {
-    console.log("Даем скидку 5%");
-} else if (fullPrice >= 0 && fullPrice < 15000) {
-    console.log("Скидка не предусмотрена");
-} else  {console.log("Что то пошло не так")};
-
-
-
 // console.log(typeof title, typeof fullPrice, typeof adaptive);
 // console.log(screens.length);
 // console.log("Стоимость верстки " + screenPrice + " рублей");
