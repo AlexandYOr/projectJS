@@ -1,13 +1,25 @@
-let title = prompt("Как называется ваш проект?");
-const screenPrice = Number(prompt("Сколько будет стоить данная работа?"));
+// переменные
+let title;
+let screenPrice;
 const rollback = 50;
-const adaptive = confirm("Нужен ли адаптив на сайте?");
-const screens = prompt("Какие типы экранов нужно разработать?");
-const service2 = prompt("Какой дополнительный тип услуг нужен?");
-const service1 = prompt("Какой дополнительный тип услуг нужен?");
-const servicePrice1 = Number(prompt("Сколько это будет стоить?"));
-const servicePrice2 = Number(prompt("Сколько это будет стоить?"));
+let adaptive;
+let screens;
+let service2;
 
+const isNumber = function (num) {
+    return !isNaN(parseFloat(num) && isFinite(num))
+};
+
+//Функции
+const asking = function () {
+    title = getCorrectName(prompt("Как называется ваш проект?", "Калькулятор верстки"));
+    screens = prompt("Какие типы экранов нужно разработать?", " Простые, сложные");
+    adaptive = confirm("Нужен ли адаптив на сайте?");
+
+    while (!isNumber(screenPrice)) {
+        screenPrice = prompt("Сколько будет стоить данная работа?");
+    };
+}
 
 const showTypeOf = function (variable) {
     console.log(variable, typeof variable);
@@ -25,31 +37,49 @@ const getRollbackMessage = function (price) {
     };
 };
 
-const getAllServicePrices = function (firstPrice, secondPrice) {
-    return firstPrice + secondPrice
-}; // Function Expression
-const allServicePrices = getAllServicePrices(servicePrice1, servicePrice2);
+// Function Expression
+const getAllServicePrices = function () {
+    let sum = 0;
 
+    for (let i = 0; i < 2; i++) {
+        if (i === 0) {
+            prompt("Какой дополнительный тип услуг нужен?")
+        } else if (i === 1) {
+            prompt("Какой дополнительный тип услуг нужен?")
+        };
+        sum += +prompt("Сколько это будет стоить?");
+    }
+    return sum
+};
+
+
+//Function Declaration
 function getFullPrice(firstPrice, secondPrice) {
     return firstPrice + secondPrice;
-}; //Function Declaration
-const fullPrice = getFullPrice(screenPrice, allServicePrices);
+};
 
-const getCorrectName = function (name) {
+
+function getCorrectName(name) {
     const splittedName = name.trim().split("");
     splittedName[0] = splittedName[0].toUpperCase();
     return splittedName.join("");
 }
-title = getCorrectName(title)
-
-
-
+//стрелочная функция
 const getServicePercentPrices = (price, rollback) => price - rollback;
+
+//Вызов функций
+asking()
+const allServicePrices = getAllServicePrices();
+const fullPrice = getFullPrice(screenPrice, allServicePrices);
 const servicePercentPrices = getServicePercentPrices(fullPrice, rollback);
+
 
 showTypeOf(title);
 showTypeOf(screenPrice);
 showTypeOf(adaptive);
+
+//Логи
+console.log("allServicePrices", allServicePrices)
 // console.log("полная стоимость - " + fullPrice, "откат посреднику - " + rollback);
 console.log(getRollbackMessage(fullPrice));
 console.log(screens);
