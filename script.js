@@ -1,10 +1,19 @@
-const text = 123;
-const stringFunction = function (funcArgument) {
-    if (typeof funcArgument !== "string") alert("Неверный тип данных")
-    const funcArgumentTrimed = funcArgument.trim();
-    if (funcArgumentTrimed.length >= 30) {
-        return funcArgumentTrimed.slice(0, 30) + "...";
+const array = ["11", "22", "33", "44", "55", "66", "77"];
+
+array.forEach(arrayElement => {
+    if (arrayElement.charAt(0) === "2" || arrayElement.charAt(0) === "4") {
+        console.log(arrayElement)
     }
-    return funcArgumentTrimed
+
+});
+
+
+
+nextNumber: for (let simpleNumbers = 2; simpleNumbers < 100; simpleNumbers++) {
+    for (let i = 2; i < simpleNumbers; i++) {
+        if (simpleNumbers % i == 0) {
+            continue nextNumber
+        }
+    }
+    console.log("Делители этого числа 1 и " + simpleNumbers)
 }
-console.log(stringFunction(text))
