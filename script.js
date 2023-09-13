@@ -4,6 +4,7 @@ let screenPrice;
 const rollback = 50;
 let adaptive;
 let screens;
+let service1;
 let service2;
 
 const isNumber = function (num) {
@@ -16,9 +17,13 @@ const asking = function () {
     screens = prompt("Какие типы экранов нужно разработать?", " Простые, сложные");
     adaptive = confirm("Нужен ли адаптив на сайте?");
 
-    while (!isNumber(screenPrice)) {
+    do {
         screenPrice = prompt("Сколько будет стоить данная работа?");
-    };
+    } while (!isNumber(screenPrice));
+
+    // while (!isNumber(screenPrice)) {
+    //     screenPrice = prompt("Сколько будет стоить данная работа?");
+    // };
 }
 
 const showTypeOf = function (variable) {
@@ -40,14 +45,17 @@ const getRollbackMessage = function (price) {
 // Function Expression
 const getAllServicePrices = function () {
     let sum = 0;
-
     for (let i = 0; i < 2; i++) {
+        let servicePrice;
         if (i === 0) {
-            prompt("Какой дополнительный тип услуг нужен?")
+            service1 = prompt("Какой дополнительный тип услуг нужен?")
         } else if (i === 1) {
-            prompt("Какой дополнительный тип услуг нужен?")
+            service2 = prompt("Какой дополнительный тип услуг нужен?")
         };
-        sum += +prompt("Сколько это будет стоить?");
+        while (!isNumber(servicePrice)) {
+            servicePrice = prompt("Сколько это будет стоить?");
+        };
+        sum += +servicePrice;
     }
     return sum
 };
@@ -55,7 +63,8 @@ const getAllServicePrices = function () {
 
 //Function Declaration
 function getFullPrice(firstPrice, secondPrice) {
-    return firstPrice + secondPrice;
+    return +firstPrice + +secondPrice;
+
 };
 
 
