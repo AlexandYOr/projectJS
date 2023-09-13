@@ -8,9 +8,12 @@ let service1;
 let service2;
 
 const isNumber = function (num) {
-    return !isNaN(parseFloat(num) && isFinite(num))
-};
+    if (num === null) {
+        return true
+    }
+    return !isNaN(parseFloat(num)) && isFinite(num) && !num.includes(" ");
 
+};
 //Функции
 const asking = function () {
     title = getCorrectName(prompt("Как называется ваш проект?", "Калькулятор верстки"));
