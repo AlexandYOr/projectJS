@@ -38,7 +38,9 @@ function hiddenNumber() {
                 } else if (userAnswer === number) {
                     let finalUserAnswer = confirm("Ура ты победил! Хочешь ли сыграть еще раз?");
                     if (finalUserAnswer === true) {
-                        return hiddenNumber()
+                        return hiddenNumber() 
+                    } else {
+                        return alert("До свидания!");
                     }
                     return
                 }
