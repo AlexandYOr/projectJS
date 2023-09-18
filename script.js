@@ -23,7 +23,7 @@ const appData = {
         appData.getFullPrice(appData.screenPrice, appData.allServicePrices);
         appData.getServicePercentPrices(appData.fullPrice, appData.rollback);
         appData.logger()
-        
+
     },
     asking: function () {
         appData.title = appData.getCorrectName(prompt("Как называется ваш проект?", "Калькулятор верстки"));
@@ -44,12 +44,9 @@ const appData = {
                 price = prompt("Сколько будет стоить данная работа?");
             } while (!appData.isNumber(price));
 
-            appData.screens.push({id: i, name: name, price: price})
+            appData.screens.push({ id: i, name: name, price: price })
         };
 
-        for(let screen of appData.screens) {
-            appData.screenPrice += +screen.price
-        }
         for (let i = 0; i < 2; i++) {
             let name = appData.getCorrectName(prompt("Какой дополнительный тип услуг нужен?"))
             while (appData.isNumber(name)) {
@@ -60,16 +57,16 @@ const appData = {
             while (!appData.isNumber(price)) {
                 price = prompt("Сколько это будет стоить?");
             };
-            appData.services[name] = +price
+            appData.services[name + "_" + i] = +price
         };
         appData.adaptive = confirm("Нужен ли адаптив на сайте?");
     },
 
-    addPrices: function() {
-        for (let screen of appData.screens) {
-            appData.screenPrice += +screen.price
-        };
-        for(let k in appData.services) {
+    addPrices: function () {
+        appData.screenPrice = appData.screens.reduce(function (value, screen) {
+            return value + +screen.price
+        }, 0)
+        for (let k in appData.services) {
             appData.allServicePrices += appData.services[k]
         }
 
@@ -109,8 +106,8 @@ const appData = {
         //     console.log(k + " " + appData[k])
         // }
         console.log(appData.screens)
-        console.log(appData.fullPrice)
         console.log(appData.servicePercentPrices)
+        console.log(appData.screenPrice)
     }
 }
 
