@@ -4,21 +4,34 @@ const month = ['Января', 'Февраля', 'Марта', 'Апреля', '
 const correctHours = ['час', 'часа', 'часов'];
 const correctMinutes = ['минута', 'минуты', 'минут'];
 const correctSecond = ['секунда', 'секунды', 'секунд']
-let today = new Date()
-// Сегодня Вторник, 4 февраля 2020 года, 21 час 5 минут 33 секунды'
+let today;
+let year;
+let numberMonth;
+let date;
+let hour;
+let minute;
+let second;
 let messageA = "";
-function getCorrectDateA() {
-    let hour = today.getHours();
-    let minute = today.getMinutes();
-    let second = today.getSeconds();
+function now () {
+    today = new Date()
+    year = today.getFullYear();
+    numberMonth = today.getMonth();
+    date = today.getDate();
+    day = today.getDay() - 1;
+    hour = today.getHours();
+    minute = today.getMinutes();
+    second = today.getSeconds();
+}
+// Сегодня Вторник, 4 февраля 2020 года, 21 час 5 минут 33 секунды'
+function DateA() {
     for (let d = 0; d < week.length; d++) {
-        if (d === today.getDay() - 1) {
+        if (d === day) {
             messageA = "Сегодня " + week[d]
         }
     }
     for (let m = 0; m < month.length; m++) {
-        if (m === today.getMonth() - 1) {
-            messageA += ", " + today.getDate() + " " + month[m] + " " + today.getFullYear() + " года, ";
+        if (m === numberMonth) {
+            messageA += ", " + date + " " + month[m] + " " + year + " года, ";
         }
     }
     function correctDeclination(n, declination) {  
@@ -33,9 +46,10 @@ function getCorrectDateA() {
     document.getElementById('test').textContent = messageA;
 }
 
+
 setInterval(function() { 
-    today = new Date()
-    getCorrectDateA()
+    now()
+    DateA()
   }, 1000);
 
 
