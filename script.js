@@ -22,8 +22,9 @@ function now () {
     minute = today.getMinutes();
     second = today.getSeconds();
 }
+now()
 // Сегодня Вторник, 4 февраля 2020 года, 21 час 5 минут 33 секунды'
-function DateA() {
+function dateA() {
     for (let d = 0; d < week.length; d++) {
         if (d === day) {
             messageA = "Сегодня " + week[d]
@@ -46,10 +47,9 @@ function DateA() {
     document.getElementById('test').textContent = messageA;
 }
 
-
 setInterval(function() { 
     now()
-    DateA()
+    dateA()
   }, 1000);
 
 
