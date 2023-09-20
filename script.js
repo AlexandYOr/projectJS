@@ -12,7 +12,8 @@ let hour;
 let minute;
 let second;
 let messageA = "";
-function now () {
+let messageB = "";
+function now() {
     today = new Date()
     year = today.getFullYear();
     numberMonth = today.getMonth();
@@ -35,22 +36,41 @@ function dateA() {
             messageA += ", " + date + " " + month[m] + " " + year + " года, ";
         }
     }
-    function correctDeclination(n, declination) {  
-        n = Math.abs(n) % 100; 
+    function correctDeclination(n, declination) {
+        n = Math.abs(n) % 100;
         var n1 = n % 10;
-        if (n > 10 && n < 20) { return n +  " " + declination[2]; }
-        if (n1 > 1 && n1 < 5) { return n + " " + declination[1]; }
-        if (n1 == 1) { return n + " " + declination[0]; }
-        return n + " " +  declination[2];
-    } 
-    messageA += correctDeclination(hour, correctHours) + " " + correctDeclination(minute, correctMinutes) + " " + correctDeclination(second, correctSecond)
-    document.getElementById('test').textContent = messageA;
+        if (n > 10 && n < 20) {
+            return n + " " + declination[2];
+        };
+        if (n1 > 1 && n1 < 5) {
+            return n + " " + declination[1];
+        };
+        if (n1 == 1) {
+            return n + " " + declination[0];
+        };
+        return n + " " + declination[2];
+    }
+    messageA += correctDeclination(hour, correctHours) + " " + correctDeclination(minute, correctMinutes) + " " + correctDeclination(second, correctSecond);
+    document.getElementById('dateA').textContent = messageA;
+}
+// '04.02.2020 - 21:05:33'
+function dateB() {
+    let todayB = [date, numberMonth + 1, year, hour, minute, second]
+    for (i = 0; i < todayB.length; i++) {
+        if (todayB[i] < 10) {
+            todayB[i] = "0" + todayB[i];
+        };
+    };
+    messageB = todayB[3] + ':' + todayB[4] + ':' + todayB[5] + ' ' + todayB[0] + '.' + todayB[1] + '.' + todayB[2];
+    document.getElementById('dateB').textContent = messageB;
 }
 
-setInterval(function() { 
+
+setInterval(function () {
     now()
     dateA()
-  }, 1000);
+    dateB()
+}, 1000);
 
 
 
