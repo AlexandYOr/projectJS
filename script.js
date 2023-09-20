@@ -23,7 +23,7 @@ function now() {
     minute = today.getMinutes();
     second = today.getSeconds();
 }
-now()
+now();
 // Сегодня Вторник, 4 февраля 2020 года, 21 час 5 минут 33 секунды'
 function dateA() {
     for (let d = 0; d < week.length; d++) {
