@@ -31,10 +31,10 @@ function now() {
             if (n > 10 && n < 20) {
                 return n + " " + declination[2];
             };
-            if (n > 1 && n < 5) {
+            if (n1 > 1 && n1 < 5) {
                 return n + " " + declination[1];
             };
-            if (n == 1) {
+            if (n1 == 1) {
                 return n + " " + declination[0];
             };
             return n + " " + declination[2];
