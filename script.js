@@ -14,11 +14,9 @@ square.querySelector('#e_btn').style.display = "none";
 //изменение свойст кружка
 let inputRange = document.querySelector('#range');
 const changeWH = function () {
-    inputRange = document.querySelector('#range')
     circle.style.width = inputRange.value + "%"
     circle.style.height = inputRange.value + "%"
 }
-changeWH()
 inputRange.addEventListener('input', changeWH)
 
 
