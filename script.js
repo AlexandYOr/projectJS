@@ -13,7 +13,7 @@ function now() {
     let hour = today.getHours();
     let minute = today.getMinutes();
     let second = today.getSeconds();
-    function dateA() {
+    function getExpandedDateDisplay() {
         let message = ""
         for (let d = 0; d < week.length; d++) {
             if (d === day) {
@@ -42,19 +42,19 @@ function now() {
         message += correctDeclination(hour, correctHours) + " " + correctDeclination(minute, correctMinutes) + " " + correctDeclination(second, correctSecond);
         document.getElementById('dateA').textContent = message;
     }
-    function dateB() {
+    function getShortDateDisplay() {
         let message = ""
-        let todayB = [date, numberMonth + 1, year, hour, minute, second]
-        for (i = 0; i < todayB.length; i++) {
-            if (todayB[i] < 10) {
-                todayB[i] = "0" + todayB[i];
+        let dateProperties = [date, numberMonth + 1, year, hour, minute, second]
+        for (i = 0; i < dateProperties.length; i++) {
+            if (dateProperties[i] < 10) {
+                dateProperties[i] = "0" + dateProperties[i];
             };
         };
-        message = todayB[3] + ':' + todayB[4] + ':' + todayB[5] + ' ' + todayB[0] + '.' + todayB[1] + '.' + todayB[2];
+        message = dateProperties[3] + ':' + dateProperties[4] + ':' + dateProperties[5] + ' ' + dateProperties[0] + '.' + dateProperties[1] + '.' + dateProperties[2];
         document.getElementById('dateB').textContent = message;
     }
-    dateA();
-    dateB();
+    getExpandedDateDisplay();
+    getShortDateDisplay();
 }
 now();
 
