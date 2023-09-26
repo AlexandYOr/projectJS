@@ -12,6 +12,9 @@ const buttonReset = document.getElementsByClassName('handler_btn')[1];
 const buttonPlus = document.querySelector('.screen-btn');
 const otherItemsPercent = document.querySelectorAll('.other-items.percent');
 const otherItemsNumber = document.querySelectorAll('.other-items.number');
+const checkboxCMS = document.querySelector('#cms-open');
+const variantsCMS = document.querySelector('.hidden-cms-variants');
+const selectCMS = variantsCMS.querySelector('#cms-select');
 const rollbackInputType = document.querySelector('.rollback > div > input[type="range"]');
 const rollbackSpan = document.querySelector('.rollback > div > span.range-value');
 
@@ -20,7 +23,7 @@ const totalCount = document.getElementsByClassName('total-input')[1]
 const totalCountOther = document.getElementsByClassName('total-input')[2]
 const fullTotalCount = document.getElementsByClassName('total-input')[3]
 const totalCountRollback = document.getElementsByClassName('total-input')[4]
-
+console.log(checkboxCMS)
 let screens = document.querySelectorAll('.screen')
 
 const appData = {
@@ -42,6 +45,8 @@ const appData = {
         buttonCalc.addEventListener('click', this.validationForm.bind(this))
         buttonPlus.addEventListener('click', this.addScreenBlock)
         buttonReset.addEventListener('click', this.reset.bind(this))
+        checkboxCMS.addEventListener('change', this.openVariationsCMS)
+        selectCMS.addEventListener('change', this.variationsMenuCMS)
     },
     addTitle: function () {
         document.title = title.textContent
@@ -185,6 +190,15 @@ const appData = {
     resetRollbackValue: function() {
         rollbackInputType.value = 0
         rollbackSpan.textContent = rollbackInputType.value + "%"
+    },
+    //CMS
+    openVariationsCMS: function(e) {
+       e.target.checked ? variantsCMS.style.display = 'flex' : variantsCMS.style.display = 'none'
+    },
+    variationsMenuCMS: function() {
+        const selectedValueCMS = selectCMS.options[selectCMS.selectedIndex].value
+        const inputCMSValueWrapper = variantsCMS.querySelector('.main-controls__input')
+        selectedValueCMS.toLowerCase() === 'other' ? inputCMSValueWrapper.style.display = 'block' : inputCMSValueWrapper.style.display = 'none'
     },
     //Расчеты
     addPrices: function () {
