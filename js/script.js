@@ -15,6 +15,7 @@ const otherItemsNumber = document.querySelectorAll('.other-items.number');
 const checkboxCMS = document.querySelector('#cms-open');
 const variantsCMS = document.querySelector('.hidden-cms-variants');
 const selectCMS = variantsCMS.querySelector('#cms-select');
+const inputCMSValueWrapper = variantsCMS.querySelector('.main-controls__input');
 const rollbackInputType = document.querySelector('.rollback > div > input[type="range"]');
 const rollbackSpan = document.querySelector('.rollback > div > span.range-value');
 
@@ -77,6 +78,7 @@ const appData = {
         this.resetServices();
         this.resetAllValue();
         this.resetRollbackValue();
+        this.resetCMSmenu()  
         buttonCalc.style.display = '';
         buttonReset.style.display = 'none'
     },
@@ -187,21 +189,28 @@ const appData = {
         this.rollback = rollbackInputType.value
         rollbackSpan.textContent = rollbackInputType.value + "%"
     },
-    resetRollbackValue: function() {
+    resetRollbackValue: function () {
         rollbackInputType.value = 0
         rollbackSpan.textContent = rollbackInputType.value + "%"
     },
     //CMS
-    openVariationsCMS: function(e) {
-       e.target.checked ? variantsCMS.style.display = 'flex' : variantsCMS.style.display = 'none'
+    openVariationsCMS: function (e) {
+        e.target.checked ? variantsCMS.style.display = 'flex' : variantsCMS.style.display = 'none'
     },
-    variationsMenuCMS: function() {
+    variationsMenuCMS: function () {
         const selectedValueCMS = selectCMS.options[selectCMS.selectedIndex].value
-        const inputCMSValueWrapper = variantsCMS.querySelector('.main-controls__input')
         selectedValueCMS.toLowerCase() === 'other' ? inputCMSValueWrapper.style.display = 'block' : inputCMSValueWrapper.style.display = 'none'
+    },
+    resetCMSmenu: function() {
+        selectCMS.selectedIndex = 0; 
+        checkboxCMS.checked = false;
+        variantsCMS.style.display = 'none';
+        inputCMSValueWrapper.style.display = 'none'
     },
     //Расчеты
     addPrices: function () {
+        const selectedValueCMS = selectCMS.options[selectCMS.selectedIndex].value
+        const multiplier = isNaN(+selectedValueCMS) && selectedValueCMS !== "" ? 1 : 1 + selectedValueCMS/100; 
         this.screenPrice = this.screens.reduce((value, screen) => {
             return value + +screen.price
         }, 0)
@@ -211,8 +220,9 @@ const appData = {
         for (let k in this.servicesPercent) {
             this.servicePricesPercent += this.screenPrice * (this.servicesPercent[k] / 100)
         }
-        this.fullPrice = + this.screenPrice + this.servicePricesNumber + this.servicePricesPercent;
+        this.fullPrice = (+ this.screenPrice + this.servicePricesNumber + this.servicePricesPercent) * multiplier;
         this.servicePercentPrices = this.fullPrice - (this.fullPrice * (this.rollback / 100))
+
 
     },
     getServicePercentPrices: function () {
