@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script defer src="./script.js"></script>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <div class="title">
@@ -12,17 +13,27 @@
     </div>
     <input type="text" class="car-name">
     <div class="car-input-group">
-        <select name="type-of-body" id="all-body">
+        <select name="type-of-body" id="all-type-body">
         <option value="" checked>--выберите тип кузов--</option>
-        <option value="Седан">Седан</option>
-        <option value="Купе">Купе</option>
-        <option value="Хот-хэтч">Хот-хэтч</option>
-        <option value="Универсал">Универсал</option>
+        <option value="Sedan">Седан</option>
+        <option value="Coupe">Купе</option>
+        <option value="HotHatch">Хот-хэтч</option>
+        <option value="Wagon">Универсал</option>
+    </select>
+    <select name="engine" id="engine" class="select select_hidden">
+        <option value="" checked>--выберите тип двигателя--</option>
+        <option value="Gasoline">Бензиновый</option>
+        <option value="Diesel">Дизельный</option>
+    </select>
+    <select name="type-of-engine" id="type-of-engine" class="select select_hidden">
+        <option value="" checked>--выберите тип двигателя--</option>
+        <option value="V8">V8</option>
+        <option value="V12">V12</option>
     </select>
     <select name="type-of-suspension" id="all-suspension">
         <option value="" checked>--выберите тип подвески--</option>
-        <option value="Зависимая">Зависимая</option>
-        <option value="Независимая">Независимая</option>
+        <option value="Многорычажная">Многорычажная</option>
+        <option value="Однорычажная">Однорычажная</option>
     </select>
     <select name="type-of-transmission" id="all-transmission">
         <option value="" checked>--выберите тип подвески--</option>
@@ -39,7 +50,6 @@
 </div>
 <div class="func-button">
     <button class="button add-car">В гараж</button>
-    <button class="button create-new-car">Cоздать новый автомобиль</button>
 </div>
 <div class="result"></div>
 </body>
