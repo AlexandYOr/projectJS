@@ -7,6 +7,40 @@
     <script defer src="./script.js"></script>
 </head>
 <body>
-    
+    <div class="title">
+        <p>Собери свой корч</p>
+    </div>
+    <input type="text" class="car-name">
+    <div class="car-input-group">
+        <select name="type-of-body" id="all-body">
+        <option value="" checked>--выберите тип кузов--</option>
+        <option value="Седан">Седан</option>
+        <option value="Купе">Купе</option>
+        <option value="Хот-хэтч">Хот-хэтч</option>
+        <option value="Универсал">Универсал</option>
+    </select>
+    <select name="type-of-suspension" id="all-suspension">
+        <option value="" checked>--выберите тип подвески--</option>
+        <option value="Зависимая">Зависимая</option>
+        <option value="Независимая">Независимая</option>
+    </select>
+    <select name="type-of-transmission" id="all-transmission">
+        <option value="" checked>--выберите тип подвески--</option>
+        <option value="Передний">Передний</option>
+        <option value="Полный">Полный</option>
+        <option value="Задний">Задний</option>
+    </select>
+    <select name="type-of-gearbox" id="all-gearbox">
+        <option value="" checked>--выберите тип подвески--</option>
+        <option value="Механика">Механика</option>
+        <option value="Автомат">Автомат</option>
+        <option value="Робот">Робот</option>
+    </select>
+</div>
+<div class="func-button">
+    <button class="button add-car">В гараж</button>
+    <button class="button create-new-car">Cоздать новый автомобиль</button>
+</div>
+<div class="result"></div>
 </body>
 </html>
