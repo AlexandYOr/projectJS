@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <script defer src="./script.js"></script>
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
     <div class="title">
         <p>Собери свой корч</p>
@@ -14,43 +16,55 @@
     <input type="text" class="car-name">
     <div class="car-input-group">
         <select name="type-of-body" id="all-type-body">
-        <option value="" checked>--выберите тип кузов--</option>
-        <option value="Sedan">Седан</option>
-        <option value="Coupe">Купе</option>
-        <option value="HotHatch">Хот-хэтч</option>
-        <option value="Wagon">Универсал</option>
-    </select>
-    <select name="engine" id="engine" class="select select_hidden">
-        <option value="" checked>--выберите тип двигателя--</option>
-        <option value="Gasoline">Бензиновый</option>
-        <option value="Diesel">Дизельный</option>
-    </select>
-    <select name="type-of-engine" id="type-of-engine" class="select select_hidden">
-        <option value="" checked>--выберите тип двигателя--</option>
-        <option value="V8">V8</option>
-        <option value="V12">V12</option>
-    </select>
-    <select name="type-of-suspension" id="all-suspension">
-        <option value="" checked>--выберите тип подвески--</option>
-        <option value="Многорычажная">Многорычажная</option>
-        <option value="Однорычажная">Однорычажная</option>
-    </select>
-    <select name="type-of-transmission" id="all-transmission">
-        <option value="" checked>--выберите тип подвески--</option>
-        <option value="Передний">Передний</option>
-        <option value="Полный">Полный</option>
-        <option value="Задний">Задний</option>
-    </select>
-    <select name="type-of-gearbox" id="all-gearbox">
-        <option value="" checked>--выберите тип подвески--</option>
-        <option value="Механика">Механика</option>
-        <option value="Автомат">Автомат</option>
-        <option value="Робот">Робот</option>
-    </select>
-</div>
-<div class="func-button">
-    <button class="button add-car">В гараж</button>
-</div>
-<div class="result"></div>
+            <option value="" checked>--выберите тип кузов--</option>
+            <option value="Sedan">Седан</option>
+            <option value="Coupe">Купе</option>
+            <option value="HotHatch">Хот-хэтч</option>
+            <option value="Wagon">Универсал</option>
+        </select>
+        <select name="type-of-suspension" id="all-suspension">
+            <option value="" checked>--выберите тип подвески--</option>
+            <option value="Многорычажная">Многорычажная</option>
+            <option value="Однорычажная">Однорычажная</option>
+        </select>
+        <select name="type-of-transmission" id="all-transmission">
+            <option value="" checked>--выберите тип подвески--</option>
+            <option value="Передний">Передний</option>
+            <option value="Полный">Полный</option>
+            <option value="Задний">Задний</option>
+        </select>
+        <select name="type-of-gearbox" id="all-gearbox">
+            <option value="" checked>--выберите тип подвески--</option>
+            <option value="Механика">Механика</option>
+            <option value="Автомат">Автомат</option>
+            <option value="Робот">Робот</option>
+        </select>
+        <select name="engine" id="engine" class="select select_hidden">
+            <option value="" checked>--выберите тип двигателя--</option>
+            <option value="Gasoline">Бензиновый</option>
+            <option value="Diesel">Дизельный</option>
+        </select>
+        <select name="type-of-engine" id="type-of-engine" class="select select_hidden">
+            <option value="" checked>--выберите тип двигателя--</option>
+            <option value="V8">V8</option>
+            <option value="V12">V12</option>
+        </select>
+    </div>
+    <div class="func-button">
+        <button class="button add-car">В гараж</button>
+    </div>
+    <div class="result">
+        <div class="table-header table-row">
+            <h4 class="table-title">Наименование машины</h4>
+            <h4 class="table-title">Кузов</h4>
+            <h4 class="table-title">Тип подвески</h4>
+            <h4 class="table-title">Тип коробки</h4>
+            <h4 class="table-title">Привод</h4>
+            <h4 class="table-title">Тип двигателя</h4>
+            <h4 class="table-title">Двигатель</h4>
+            <h4 class="table-title">Пошла нахуй эта машина</h4>
+        </div>
+    </div>
 </body>
+
 </html>

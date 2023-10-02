@@ -1,3 +1,14 @@
 .select_hidden {
     display: none;
 }
+
+.result {
+    display: flex;
+    flex-direction: column;
+}
+
+.table-row {
+    display: grid;
+    border: 1px solid black;
+    grid-template-columns: repeat(8, 1fr);
+}
