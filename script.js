@@ -42,4 +42,4 @@ const DomElement = function (selector, height, width, backgroundColor, fontSize,
 const newElementWithClass = new DomElement('.block', '100px', '100px', 'pink', '3px', 'absolute')
 // newElementWithID.createElement()
 document.addEventListener("DOMContentLoaded", newElementWithClass.createElement)
-document.addEventListener("keydown", newElementWithClass.findAndMoveElement)
+document.addEventListener("keydown", newElementWithClass.moveElement)
