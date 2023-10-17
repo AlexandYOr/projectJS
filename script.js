@@ -30,6 +30,7 @@ class NewCar{
 // наследники класса NewCar
 class Sedan extends NewCar{
     constructor(id, carName, body, suspension, transmission, gearbox, engine, engineType) {
+        super()
         this.id = id
         this.carName = carName;
         this.body = body;
@@ -42,6 +43,7 @@ class Sedan extends NewCar{
 }
 class Wagon extends NewCar{
     constructor(id, carName, body, suspension, transmission, gearbox, engine, engineType) {
+        super()
         this.id = id
         this.carName = carName;
         this.body = body;
@@ -54,6 +56,7 @@ class Wagon extends NewCar{
 }
 class Coupe extends NewCar{
     constructor(id, carName, body, suspension, transmission, gearbox, engine, engineType) {
+        super()
         this.id = id
         this.carName = carName;
         this.body = body;
@@ -66,6 +69,7 @@ class Coupe extends NewCar{
 }
 class HotHatch extends NewCar{
     constructor(id, carName, body, suspension, transmission, gearbox, engine, engineType) {
+        super()
         this.id = id
         this.carName = carName;
         this.body = body;
